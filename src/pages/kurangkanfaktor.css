@@ -1,0 +1,78 @@
+.first-selection-div {
+  text-align: center;
+}
+
+.first-selection-button {
+  margin: 1rem;
+  height: 6rem;
+  width: 40%;
+  border-radius: 1rem;
+  background-color: white;
+  border: 3px black solid;
+  font-weight: bold;
+}
+
+.first-selection-button:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: aliceblue;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+}
+
+.first-selection-input {
+  border-radius: 1rem;
+  padding: 1%;
+  background-color: white;
+  margin: 0.3rem;
+  border: 3px black solid;
+}
+
+.first-selection-input:hover {
+  background-color: blue;
+  color: aliceblue;
+}
+
+.first-selection-submit {
+  border-radius: 50%;
+  font-size: large;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin: 0.3rem;
+  border: 3px black solid;
+  background-color: white;
+}
+
+.first-selection-submit:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: aliceblue;
+}
+
+.current-number {
+  background-color: white;
+  text-align: center;
+  font-size: larger;
+  margin-left: 42%;
+  margin-right: 42%;
+  border: 3px black solid;
+}
+
+.factor-button {
+  background-color: white;
+  border: 1px black solid;
+}
+
+.factor-button:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: aliceblue;
+}

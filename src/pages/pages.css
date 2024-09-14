@@ -1,0 +1,21 @@
+.container {
+  margin: 5%;
+  padding: 5%;
+  background-color: azure;
+  border-radius: 3%;
+}
+
+.problem-title {
+  text-align: center;
+}
+
+.problem-description {
+  text-align: justify;
+  background-color:aliceblue;
+  padding: 5%;
+}
+
+.problem-board {
+  background-color: aliceblue;
+  padding: 5%;
+}

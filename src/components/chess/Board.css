@@ -1,0 +1,42 @@
+.square-valid {
+  background-color: white;
+  color: #000;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.square-valid:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+}
+
+.square-non-valid {
+  background-color: white;
+  color: #000;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.square-non-valid:hover {
+  cursor: pointer;
+  background-color: crimson;
+}
+
+.board-row {
+  margin-bottom: -4px;
+}
+
+.restart-button {
+  background-color: white;
+  border-width: 1px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.restart-button:hover {
+  background-color: ivory;
+}
+
+.restart-button svg {
+  margin-left: 6px;
+  transform: translateY(2px);
+}
