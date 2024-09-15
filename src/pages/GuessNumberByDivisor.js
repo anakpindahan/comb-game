@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const GuessNumberByDivisor = () => {
-  const [secretNumber, setSecretNumber] = useState(Math.floor(1 + Math.random() * 50))
+  const secretNumber = useState(Math.floor(1 + Math.random() * 50))
   const [numQuestionsAsked, setNumQuestionsAsked] = useState(0)
   const [questionAnswer, setQuestionAnswer] = useState(false)
   const [factor, setFactor] = useState(0)
@@ -41,7 +41,7 @@ const GuessNumberByDivisor = () => {
       </div>
       <div className="problem-board">
         <p>Pertanyaan yang telah ditanyakan: {numQuestionsAsked}</p>
-        {gameStatus !== 0 && (gameStatus == 1 ? (<p>Victor berhasil menebak angka dengan menanyakan {numQuestionsAsked} pertanyaan</p>) : (<p>Victor menebak angka yang salah</p>))}
+        {gameStatus !== 0 && (gameStatus === 1 ? (<p>Victor berhasil menebak angka dengan menanyakan {numQuestionsAsked} pertanyaan</p>) : (<p>Victor menebak angka yang salah</p>))}
         {questionAnswer ? (<p>{factor} adalah faktor</p>) : (<p>{factor} bukanlah faktor</p>)}
         <form onSubmit={(e) => handleSubmitFactor(e)}>
           <label>
