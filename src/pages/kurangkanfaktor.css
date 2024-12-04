@@ -8,13 +8,14 @@
   width: 40%;
   border-radius: 1rem;
   background-color: white;
-  border: 3px black solid;
+  border: 0.1rem black solid;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
 .first-selection-button:hover {
   cursor: pointer;
-  background-color: blue;
+  background-color: cornflowerblue;
   color: aliceblue;
 }
 
@@ -33,46 +34,40 @@ input[type=number]{
   padding: 1%;
   background-color: white;
   margin: 0.3rem;
-  border: 3px black solid;
+  border: 0.1rem black solid;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .first-selection-input:hover {
-  background-color: blue;
+  background-color: cornflowerblue;
   color: aliceblue;
 }
 
-.first-selection-submit {
-  border-radius: 50%;
-  font-size: large;
-  width: 2.1rem;
-  height: 2.1rem;
-  margin: 0.3rem;
-  border: 3px black solid;
-  background-color: white;
-}
-
-.first-selection-submit:hover {
-  cursor: pointer;
-  background-color: blue;
-  color: aliceblue;
+.helper-text {
+  font-size: 1.5rem;
 }
 
 .current-number {
   background-color: white;
   text-align: center;
-  font-size: larger;
+  font-size: 2rem;
   margin-left: 42%;
   margin-right: 42%;
   border: 3px black solid;
+  margin-bottom: 5%;
 }
 
 .factor-button {
   background-color: white;
   border: 1px black solid;
+  font-size: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 .factor-button:hover {
   cursor: pointer;
-  background-color: blue;
+  background-color: cornflowerblue;
   color: aliceblue;
 }

@@ -2,7 +2,7 @@ import "./Board.css"
 
 const Square = ({isFilled, isValid, onSquareClick}) => {
   return (
-    <button className={isValid ? "square-valid" : "square-non-valid"} onClick={onSquareClick}>{isFilled ? "P" : "_"}</button>
+    <button className={isValid ? "square-valid" : "square-non-valid"} onClick={onSquareClick}>{isFilled ? "P" : ""}</button>
   );
 }
 

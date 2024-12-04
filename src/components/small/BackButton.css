@@ -1,0 +1,12 @@
+.back-button {
+  background-color: transparent;
+  border: 0px;
+  font-size: 4rem;
+  width: 4rem;
+}
+
+.back-button:hover {
+  color: aliceblue;
+  cursor: pointer;
+  transform: scale(1.2);
+}

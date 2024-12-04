@@ -1,4 +1,5 @@
 import { useState } from "react"
+import BackButton from "../components/small/BackButton"
 
 const GuessNumberByDivisor = () => {
   const secretNumber = useState(Math.floor(1 + Math.random() * 50))
@@ -34,7 +35,11 @@ const GuessNumberByDivisor = () => {
 
   return(
     <div className="container">
-      <h1 className="problem-title">Tebak angka berdasarkan faktor</h1>
+      <div className="back-title">
+        <BackButton/>
+        <h1 className="problem-title">Tebak angka berdasarkan faktor</h1>
+        <div className="empty-div"/>
+      </div>
       <div className="problem-description">
         <p>William is thinking of an integer between 1 and 50, inclusive. Victor can choose a positive integer m and ask William: "does m divide your number?", to which William must answer truthfully. Victor continues asking these questions until he determines William's number. What is the minimum number of questions that Victor needs to guarantee this?</p>
         <p>Sumber: Kanada MO 2023 P1</p>

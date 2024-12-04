@@ -1,18 +1,30 @@
 .square-valid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: white;
   color: #000;
   font-family: 'Courier New', Courier, monospace;
+  height: 3rem;
+  width: 3rem;
 }
 
 .square-valid:hover {
   cursor: pointer;
-  background-color: aquamarine;
+  background-color: lime;
 }
 
 .square-non-valid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: white;
   color: #000;
   font-family: 'Courier New', Courier, monospace;
+  padding: 1px;
+  font-size: 3rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 .square-non-valid:hover {
@@ -21,15 +33,19 @@
 }
 
 .board-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: -4px;
 }
 
 .restart-button {
   background-color: white;
-  border-width: 1px;
+  border-width: 2px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 2rem;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
 .restart-button:hover {

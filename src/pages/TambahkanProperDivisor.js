@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./pages.css"
 import "./kurangkanfaktor.css"
+import BackButton from "../components/small/BackButton"
 
 const TambahkanProperDivisor = () => {
   const [currNumber, setCurrNumber] = useState(2)
@@ -42,14 +43,22 @@ const TambahkanProperDivisor = () => {
 
   return(
     <div className="container">
-      <h1 className="problem-title">Tambahkan Proper Divisor</h1>
+      <div className="back-title">
+        <BackButton/>
+        <h1 className="problem-title">Tambahkan Proper Divisor</h1>
+        <div className="empty-div"/>
+      </div>
       <p className="problem-description">Start with n = 2. Two players A and B move alternately by adding a proper divisor of n to the current n. The goal is a number ≥ 1990. Who wins?</p>
       <div className="problem-board">
+        {isWon(currNumber) ? (
+          <p className="turn-text">Pemain {2 - turn} menang</p>
+        ) : (
+          <p className="turn-text">Giliran Pemain {turn + 1}</p>
+        )}
         <div className="current-number">
           <p>{currNumber}</p>
         </div>
-        {isWon(currNumber) ? (<p>Pemain {2 - turn} menang</p>) : (<p>Giliran pemain {turn + 1}</p>)}
-        {!isFinished && (<p>Pilihan faktor yang ingin ditambahkan:</p>)}
+        {!isFinished && (<p className="helper-text">Pilihan faktor yang ingin ditambahkan:</p>)}
         {!isFinished && getFactors(currNumber).map((val) => {
           return (<button className="factor-button" onClick={(e) => handleSubmit(e, val)}>{val}</button>)
         })}

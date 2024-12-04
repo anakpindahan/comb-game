@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout/>}>
+        {/* <Route path='/' element={<Layout/>}> */}
           <Route index element={<Home/>}/>
           <Route path='/catur' element={<Chess/>}/>
           <Route path='/kurangkan-faktor-1' element={<KurangkanFaktor1 />}/>
@@ -23,7 +23,7 @@ function App() {
           <Route path='/tambahkan-proper-divisor' element={<TambahkanProperDivisor/>}/>
           <Route path='/kalikan-terus' element={<KalikanTerus/>}/>
           <Route path='/hapus-sisakan-relatif-prima' element={<HapusSisakanRelatifPrima />}/>
-        </Route>
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,12 @@
+.home-card-button {
+  background-color: aliceblue;
+  width: 10rem;
+  height: 4rem;
+  font-size: 1rem;
+}
+
+.home-card-button:hover {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  cursor: pointer;
+}

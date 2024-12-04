@@ -1,6 +1,8 @@
 import { useState } from "react"
 import Board from "../components/chess/Board"
 import './pages.css'
+import './chess.css'
+import BackButton from "../components/small/BackButton";
 
 const Chess = () => {
   const [turn, setTurn] = useState(0)
@@ -29,13 +31,17 @@ const Chess = () => {
 
   return(
     <div className="container">
-      <h1 className="problem-title">Chess</h1>
+      <div className="back-title">
+        <BackButton/>
+        <h1 className="problem-title">Chess</h1>
+        <div className="empty-div"/>
+      </div>
       <p className="problem-description">Terdapat sebuah papan berukuran 8 x 8. Sebuah pion berada di petak kiri atas. Pion ini hanya bisa bergerak lurus ke bawah dan ke kanan. Dua pemain secara bergantian menggerakkan pion ini agar sampai di petak kanan bawah. Pemain yang berhasil menggerakkan pion ke petak kanan bawah menang. Siapakah yang memiliki strategi menang?</p>
       <div className="problem-board">
         {positionX === 8 && positionY === 8 ? (
-          <p>Pemain {2 - turn} menang</p>
+          <p className="turn-text">Pemain {2 - turn} menang</p>
         ) : (
-          <p>Giliran Pemain {turn + 1}</p>
+          <p className="turn-text">Giliran Pemain {turn + 1}</p>
         )}
         <Board x={8} y={8} positionX={positionX} positionY={positionY} setNewPosition={handleNewPosition}/>
         <button className="restart-button" onClick={(e) => restart(e)}>

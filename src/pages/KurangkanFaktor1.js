@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./pages.css"
 import "./kurangkanfaktor.css"
+import BackButton from "../components/small/BackButton"
 
 const KurangkanFaktor1 = () => {
   const [currNumber, setCurrNumber] = useState(120)
@@ -32,14 +33,22 @@ const KurangkanFaktor1 = () => {
 
   return(
     <div className="container">
-      <h1 className="problem-title">Kurangkan Faktor (versi 1)</h1>
+      <div className="back-title">
+        <BackButton/>
+        <h1 className="problem-title">Kurangkan Faktor (versi 1)</h1>
+        <div className="empty-div"/>
+      </div>
       <p className="problem-description">Tertulis bilangan 120. Dua pemain secara bergantian mengurangkan bilangan yang ada dengan salah satu faktor positifnya dan mengganti bilangan yang ada dengan hasil tersebut. Pemain yang menuliskan angka 0 kalah. Siapakah yang memiliki strategi menang?</p>
       <div className="problem-board">
+        {currNumber === 0 ? (
+          <p className="turn-text">Pemain {turn + 1} menang</p>
+        ) : (
+          <p className="turn-text">Giliran Pemain {turn + 1}</p>
+        )}
         <div className="current-number">
           <p>{currNumber}</p>
         </div>
-        {currNumber === 0 ? (<p>Pemain {turn + 1} menang</p>) : (<p>Giliran pemain {turn + 1}</p>)}
-        <p>Pilihan faktor yang ingin dikurangkan:</p>
+        {currNumber > 0 && (<p className="helper-text">Pilihan faktor yang ingin dikurangkan:</p>)}
         {getFactors(currNumber).map((val) => {
           return (<button className="factor-button" onClick={(e) => handleSubmit(e, val)}>{val}</button>)
         })}
