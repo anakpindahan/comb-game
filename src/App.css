@@ -8,3 +8,10 @@
   min-height: 100vh;
   overflow: hidden;
 }
+
+.home-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1rem;
+}

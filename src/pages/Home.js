@@ -1,23 +1,29 @@
 import { Link } from "react-router-dom";
 import HomeCard from "../components/small/HomeCard";
 
-const link_title = {
-  "/catur": "Chess",
-  "/kurangkan-faktor-1": "Kurangkan Faktor v1",
-  "/kurangkan-faktor-2": "Kurangkan Faktor v2",
-  "/tebak-angka-dengan-faktor": "Tebak angka dengan faktor",
-  "/tambahkan-proper-divisor": "Tambahkan proper divisor",
-  "/kalikan-terus": "Kalikan terus",
-  "/hapus-sisakan-relatif-prima": "Hapus sisakan relatif prima"
+let title_link = {
+  "Chess": "/catur",
+  "Kurangkan Faktor v1": "/kurangkan-faktor-1",
+  "Kurangkan Faktor v2": "/kurangkan-faktor-2",
+  "Tebak angka dengan faktor": "/tebak-angka-dengan-faktor",
+  "Tambahkan proper divisor": "/tambahkan-proper-divisor",
+  "Kalikan terus": "/kalikan-terus",
+  "Hapus sisakan relatif prima": "/hapus-sisakan-relatif-prima"
 }
+
+let title_link_arr = Object.keys(title_link)
+title_link_arr.sort()
 
 const Home = () => {
   return(
     <div className="first-container">
       <h1>Home</h1>
-      {Object.keys(link_title).map(key => {
-        return(<HomeCard link={key} title={link_title[key]}/>)
-      })}
+      <div className="home-cards-container">
+        {title_link_arr
+          .map(key => {
+          return(<HomeCard link={title_link[key]} title={key}/>)
+        })}
+      </div>
     </div>
   );
 };
