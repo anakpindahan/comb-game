@@ -1,15 +1,27 @@
 import { useState } from "react"
+import { getFactors } from "../utils"
 import "./pages.css"
 import "./kurangkanfaktor.css"
-import BackButton from "../components/small/BackButton"
+import Problem from "../components/big/Problem"
+import RestartButton from "../components/small/RestartButton"
+import NumberDisplayer from "../components/small/NumberDisplayer"
+import PlayerTurn from "../components/small/PlayerTurn"
+import FactorButton from "../components/small/FactorButton"
 
 const TambahkanProperDivisor = () => {
+  const title = "Tambahkan Proper Divisor"
+  const desc = "Start with n = 2. Two players A and B move alternately by adding a proper divisor of n to the current n. The goal is a number ≥ 1990. Who wins?"
+  const source = "Problem-Solving Strategies - Arthur Engel"
+
   const [currNumber, setCurrNumber] = useState(2)
   const [turn, setTurn] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
 
-  const isValid = (factor) => {
-    return (currNumber % factor) === 0 && currNumber > factor
+  const restart = (e) => {
+    e.preventDefault()
+    setCurrNumber(2)
+    setTurn(0)
+    setIsFinished(false)
   }
 
   const isWon = (n) => {
@@ -18,52 +30,29 @@ const TambahkanProperDivisor = () => {
 
   const handleSubmit = (e, val) => {
     e.preventDefault()
-    if(isValid(val)){
-      if(isWon(currNumber + val)){
-        setIsFinished(true)
-      }
-      setCurrNumber(cn => cn + val)
-      setTurn(t => (t + 1) % 2)
-    } else if (val === currNumber) {
-      alert("Input bukan merupakan faktor yang valid")
-    } else {
-      alert("Input bukan merupakan faktor")
+    if(isWon(currNumber + val)){
+      setIsFinished(true)
     }
+    setCurrNumber(cn => cn + val)
+    setTurn(t => (t + 1) % 2)
   }
 
-  const getFactors = (n) => {
-    const factors = []
-    for(let i = 1; i < n; i++){
-      if(n % i === 0){
-        factors.push(i)
-      }
-    }
-    return factors
-  }
-
-  return(
-    <div className="container">
-      <div className="back-title">
-        <BackButton/>
-        <h1 className="problem-title">Tambahkan Proper Divisor</h1>
-        <div className="empty-div"/>
-      </div>
-      <p className="problem-description">Start with n = 2. Two players A and B move alternately by adding a proper divisor of n to the current n. The goal is a number ≥ 1990. Who wins?</p>
-      <div className="problem-board">
-        {isWon(currNumber) ? (
-          <p className="turn-text">Pemain {2 - turn} menang</p>
-        ) : (
-          <p className="turn-text">Giliran Pemain {turn + 1}</p>
-        )}
-        <div className="current-number">
-          <p>{currNumber}</p>
-        </div>
+  const board = (
+    <>
+      <div>
+        <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={isWon(currNumber)} />
+        <NumberDisplayer currNumber={currNumber}/>
         {!isFinished && (<p className="helper-text">Pilihan faktor yang ingin ditambahkan:</p>)}
-        {!isFinished && getFactors(currNumber).map((val) => {
-          return (<button className="factor-button" onClick={(e) => handleSubmit(e, val)}>{val}</button>)
+        {!isFinished && getFactors(currNumber).slice(0, -1).map((val) => {
+          return (<FactorButton text={val} handler={(e) => handleSubmit(e, val)} />)
         })}
       </div>
-    </div>
+      <RestartButton restartCallback={(e) => restart(e)}/>
+    </>
+  )
+
+  return(
+    <Problem title={title} desc={desc} board={board} source={source}/>
   )
 }
 

@@ -7,22 +7,6 @@
   overflow: hidden;
 }
 
-.back-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
-
-.problem-title {
-  text-align: center;
-  font-size: max(3rem, 3vw);
-}
-
-.empty-div {
-  width: 4rem;
-}
-
 .problem-description {
   text-align: justify;
   background-color:aliceblue;
@@ -31,7 +15,7 @@
   margin-right: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 2rem;
+  padding: 2.7rem;
   font-size: max(1vw, 1rem);
   border-radius: 2rem;
 }
@@ -39,6 +23,14 @@
 .problem-description:hover {
   transform: scale(1.005);
   border-radius: 0rem;
+}
+
+.problem-hr {
+  margin: 2rem;
+}
+
+.problem-sources {
+  font-size: max(0.8vw, 0.8rem);
 }
 
 .problem-board {
@@ -49,15 +41,12 @@
   margin-right: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 2rem;
+  padding: 2.7rem;
   border-radius: 2rem;
+  text-align: center;
 }
 
 .problem-board:hover {
   transform: scale(1.005);
   border-radius: 0rem;
-}
-
-.turn-text {
-  font-size: max(1.5vw, 1.5rem);
 }

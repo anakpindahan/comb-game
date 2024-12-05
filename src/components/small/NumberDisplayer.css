@@ -1,0 +1,9 @@
+.current-number {
+  background-color: white;
+  text-align: center;
+  font-size: 2rem;
+  margin-left: 42%;
+  margin-right: 42%;
+  border: 3px black solid;
+  margin-bottom: 5%;
+}

@@ -1,0 +1,28 @@
+.first-selection-div {
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+}
+
+.first-selection-input {
+  border-radius: 1rem;
+  padding: 1%;
+  background-color: white;
+  margin: 0.3rem;
+  border: 0.1rem black solid;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.first-selection-input:hover {
+  background-color: cornflowerblue;
+  color: aliceblue;
+}

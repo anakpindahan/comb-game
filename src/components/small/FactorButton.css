@@ -1,0 +1,13 @@
+.factor-button {
+  background-color: white;
+  border: 1px black solid;
+  font-size: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.factor-button:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+  color: aliceblue;
+}

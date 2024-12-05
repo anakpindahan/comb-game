@@ -1,70 +1,48 @@
 import { useState } from "react"
+import { getFactors, isPrimeOrOne } from "../utils"
 import "./pages.css"
 import "./kurangkanfaktor.css"
-import BackButton from "../components/small/BackButton"
+import Problem from "../components/big/Problem"
+import RestartButton from "../components/small/RestartButton"
+import NumberDisplayer from "../components/small/NumberDisplayer"
+import PlayerTurn from "../components/small/PlayerTurn"
+import FactorButton from "../components/small/FactorButton"
 
 const KurangkanFaktor2 = () => {
+  const title = "Kurangkan Faktor (versi 2)"
+  const desc = "Tertulis bilangan 120. Dua pemain secara bergantian mengurangkan bilangan yang ada dengan salah satu faktor positifnya yang bukan 1 atau bilangan itu sendiri dan mengganti bilangan yang ada dengan hasil tersebut. Pemain yang tidak dapat melakukan langkah kalah. Siapakah yang memiliki strategi menang?"
+
   const [currNumber, setCurrNumber] = useState(120)
   const [turn, setTurn] = useState(0)
 
-  const isValid = (factor) => {
-    return currNumber > 0 && factor > 1 && (currNumber % factor) === 0 && currNumber > factor
-  }
-
-  const isPrimeOrOne = (n) => {
-    for(let i = 2; i <= Math.floor(Math.sqrt(n)); i++){
-      if((n % i === 0)){
-        return false
-      }
-    }
-    return true
+  const restart = (e) => {
+    e.preventDefault()
+    setCurrNumber(120)
+    setTurn(0)
   }
 
   const handleSubmit = (e, val) => {
     e.preventDefault()
-    if(isValid(val)){
-      setCurrNumber(cn => cn - val)
-      setTurn(t => (t + 1) % 2)
-    } else if (val === 1 || val === currNumber) {
-      alert("Input bukan merupakan faktor yang valid")
-    } else {
-      alert("Input bukan merupakan faktor")
-    }
+    setCurrNumber(cn => cn - val)
+    setTurn(t => (t + 1) % 2)
   }
 
-  const getFactors = (n) => {
-    const factors = []
-    for(let i = 2; i < n; i++){
-      if(n % i === 0){
-        factors.push(i)
-      }
-    }
-    return factors
-  }
-
-  return(
-    <div className="container">
-      <div className="back-title">
-        <BackButton/>
-        <h1 className="problem-title">Kurangkan Faktor (versi 2)</h1>
-        <div className="empty-div"/>
-      </div>
-      <p className="problem-description">Tertulis bilangan 120. Dua pemain secara bergantian mengurangkan bilangan yang ada dengan salah satu faktor positifnya yang bukan 1 atau bilangan itu sendiri dan mengganti bilangan yang ada dengan hasil tersebut. Pemain yang tidak dapat melakukan langkah kalah. Siapakah yang memiliki strategi menang?</p>
-      <div className="problem-board">
-        {isPrimeOrOne(currNumber) ? (
-          <p className="turn-text">Pemain {2 - turn} menang</p>
-        ) : (
-          <p className="turn-text">Giliran Pemain {turn + 1}</p>
-        )}
-        <div className="current-number">
-          <p>{currNumber}</p>
-        </div>
+  const board = (
+    <div>
+      <div>
+        <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={isPrimeOrOne(currNumber)} />
+        <NumberDisplayer currNumber={currNumber}/>
         {!isPrimeOrOne(currNumber) && (<p className="helper-text">Pilihan faktor yang ingin dikurangkan:</p>)}
-        {getFactors(currNumber).map((val) => {
-          return (<button className="factor-button" onClick={(e) => handleSubmit(e, val)}>{val}</button>)
+        {getFactors(currNumber).slice(1, -1).map((val) => {
+          return (<FactorButton text={val} handler={(e) => handleSubmit(e, val)} />)
         })}
       </div>
+      <RestartButton restartCallback={(e) => restart(e)}/>
     </div>
+  )
+
+  return(
+    <Problem title={title} desc={desc} board={board}/>
   )
 }
 

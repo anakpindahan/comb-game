@@ -1,17 +1,31 @@
 import { useState } from "react"
+import { gcd } from "../utils"
 import "./pages.css"
 import "./kurangkanfaktor.css"
-import BackButton from "../components/small/BackButton"
+import Problem from "../components/big/Problem"
+import FactorButton from "../components/small/FactorButton"
+import PlayerTurn from "../components/small/PlayerTurn"
+import RestartButton from "../components/small/RestartButton"
+import InputNForm from "../components/small/InputNForm"
 
 const HapusSisakanRelatifPrima = () => {
+  const title = "Hapus Sisakan Relatif Prima"
+  const desc = "Start with n ≥ 12 successive positive integers. A and B alternately take one integer, until only two integers a and b are left. A wins if gcd(a, b) = 1, and B wins if gcd(a, b) > 1. Who wins?"
+  const source = "Problem-Solving Strategies - Arthur Engel"
+
   const [turn, setTurn] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [n, setN] = useState(-1)
   const [expN, setExpN] = useState(12)
   const [numberList, setNumberList] = useState([])
 
-  const gcd = (a, b) => {
-    return (a === 0 ? b : (b === 0 ? a : gcd (b, a % b)))
+  const restart = (e) => {
+    e.preventDefault()
+    setN(-1)
+    setExpN(12)
+    setNumberList([])
+    setTurn(0)
+    setIsFinished(false)
   }
 
   const playerWon = () => {
@@ -19,13 +33,9 @@ const HapusSisakanRelatifPrima = () => {
   }
 
   const handleChangeN = (e) => {
-    e.preventDefault()
-    if(expN <= 120){
-      setN(expN)
-      setNumberList(Array.from({length: expN}, (_, i) => (i + 1)))
-    } else {
-      alert('Masukkan nilai n yang tidak lebih dari 120')
-    }
+    e.preventDefault()    
+    setN(expN)
+    setNumberList(Array.from({length: expN}, (_, i) => (i + 1)))
   }
 
   const handleXRemoval = (e, x) => {
@@ -37,33 +47,35 @@ const HapusSisakanRelatifPrima = () => {
     setNumberList(numberList.filter(item => item !== x))
   }
 
-  return(
-    <div className="container">
-      <div className="back-title">
-        <BackButton/>
-        <h1 className="problem-title">Hapus Sisakan Relatif Prima</h1>
-        <div className="empty-div"/>
-      </div>
-      <p className="problem-description">Start with n ≥ 12 successive positive integers. A and B alternately take one integer, until only two integers a and b are left. A wins if gcd(a, b) = 1, and B wins if gcd(a, b) > 1. Who wins?</p>
-      <div className="problem-board">
-        {n === -1 && (
-        <div className="first-selection-div">
-          <h2>Masukkan nilai n yang tidak lebih dari 120</h2>
-          <form onSubmit={(e) => handleChangeN(e)}>
-            <input className="first-selection-input" type="number" value={expN} onChange={(e) => setExpN(e.target.value)} min="12" />
-          </form>
-        </div>)}
-        {n !== -1 && (isFinished ? (
-          <p className="turn-text">Pemain {playerWon()} menang dengan dua bilangan tersisa: {numberList[0]} dan {numberList[1]}</p>
-        ) : (
-          <p className="turn-text">Giliran pemain {turn + 1}</p>
-        ))}
-        {n !== -1 && !isFinished && (<p className="helper-text">Pilihan bilangan yang ingin dihapus:</p>)}
-        {n !== -1 && !isFinished && numberList.map((val) => {
-          return (<button className="factor-button" onClick={(e) => handleXRemoval(e, val)}>{val}</button>)
-        })}
-      </div>
+  const board = (
+    <div>
+      {n === -1 && (
+        <InputNForm text={"Masukkan nilai n yang tidak lebih dari 120"} 
+          submitHandler={(e) => handleChangeN(e)}
+          changeHandler={(e) => setExpN(e.target.value)}
+          val={expN}
+          min="12"
+          max="120"/>
+      )}
+      {n !== -1 && (
+        <div>
+          <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={playerWon()} isFinished={isFinished} winningText={`Pemain ${playerWon()} menang dengan dua bilangan tersisa: ${numberList[0]} dan ${numberList[1]}`}/>
+          {!isFinished && (
+            <div>
+              <p className="helper-text">Pilihan bilangan yang ingin dihapus:</p>
+              {numberList.map((val) => {
+                return (<FactorButton text={val} handler={(e) => handleXRemoval(e, val)}/>)
+              })}
+            </div>
+          )}
+          <RestartButton restartCallback={(e) => restart(e)}/>
+        </div>
+      )}
     </div>
+  )
+
+  return(
+    <Problem title={title} desc={desc} board={board} source={source}/>
   )
 }
 

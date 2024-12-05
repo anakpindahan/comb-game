@@ -1,0 +1,14 @@
+.back-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.problem-title {
+  text-align: center;
+  font-size: max(3rem, 3vw);
+}
+
+.empty-div {
+  width: 4rem;
+}
