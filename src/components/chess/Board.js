@@ -1,34 +1,24 @@
 import "./Board.css"
 
-const Square = ({isFilled, isValid, onSquareClick}) => {
+const Square = ({isFilled, filling, isValid, onSquareClick}) => {
   return (
-    <button className={isValid ? "square-valid" : "square-non-valid"} onClick={onSquareClick}>{isFilled ? "P" : ""}</button>
+    <button className={isValid ? "square-valid" : "square-non-valid"} onClick={onSquareClick}>{isFilled ? filling : ""}</button>
   );
 }
 
 const Board = (props) => {
-  const isValidMove = (xOld, yOld, xNew, yNew) => {
-    return((xOld === xNew && yOld < yNew)||(xOld < xNew && yOld === yNew))
-  }
-
-  const handleClick = (x, y) => {
-    if(isValidMove(props.positionX, props.positionY, x, y)){
-      props.setNewPosition(x, y)
-    } else {
-      // alert("Langkah tidak valid")
-    }
-  }
 
   return(
     <>
-      {[...Array(props.x)].map((x, i) => {
+      {[...Array(props.x)].map((_, i) => {
         return (<div className="board-row">
-          {[...Array(props.y)].map((y, j) => {
+          {[...Array(props.y)].map((_, j) => {
             return(
             <>
-              <Square isFilled={i === props.positionX - 1 && j === props.positionY - 1}
-              isValid={isValidMove(props.positionX - 1, props.positionY - 1, i, j)}
-              onSquareClick={() => handleClick(i + 1, j + 1)}/>
+              <Square isFilled={props.isFilled(i, j)}
+              filling={props.filling}
+              isValid={props.isValid(i, j)}
+              onSquareClick={() => props.clickHandler(i, j)}/>
             </>)
           })}
         </div>)
