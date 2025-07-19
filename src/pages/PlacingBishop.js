@@ -4,12 +4,12 @@ import PlayerTurn from "../components/small/PlayerTurn"
 import Board from "../components/chess/Board"
 import RestartButton from "../components/small/RestartButton"
 
-const PlacingKing = () => {
-  const title = "Taruh Raja"
-  const desc = "Two players take turns placing kings on the squares of a 9 x 9 chessboard, so that no king can capture another. The player who is unable to do this loses."
+const PlacingBishop = () => {
+  const title = "Taruh Gajah"
+  const desc = "Two players take turns placing bishops on the squares of a chessboard, so that they cannot capture each other. (the bishops may be placed on squares of any color). The player who is unable to do this loses."
   const source = "Mathematical Circles (Russian Experience) - Dmitri Fomin, Sergey Genkin, Ilia Itenberg"
 
-  const size = 9
+  const size = 8
   const [turn, setTurn] = useState(0)
   const [squareStatus, setSquareStatus] = useState(Array(size).fill(0).map(() => Array(size).fill(0)))
   // empty and valid = 0, empty and not valid = -1, not empty = 1
@@ -112,7 +112,7 @@ const PlacingKing = () => {
   const board = (
     <div>
       <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={validCount <= 0} />
-      <Board x={size} y={size} filling={() => "K"}
+      <Board x={size} y={size} filling={() => "B"}
         isFilled={isFilled}
         isValid={isValid}
         setNewPosition={newPositionHandler}
@@ -127,4 +127,4 @@ const PlacingKing = () => {
   )
 }
 
-export default PlacingKing
+export default PlacingBishop

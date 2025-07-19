@@ -44,7 +44,7 @@ const MovingRook = () => {
   const board = (
     <div>
       <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={positionX === 7 && positionY === 7}/>
-      <Board x={8} y={8} filling="R"
+      <Board x={8} y={8} filling={() => "R"}
       isFilled={isFilled} 
       isValid={isValid}
       setNewPosition={newPositionHandler}

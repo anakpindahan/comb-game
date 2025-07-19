@@ -16,6 +16,8 @@ import PlacingKnight from "./pages/PlacingKnight";
 import SubtractPowerOfTwo from "./pages/SubtractPowerOfTwo";
 import AddSmaller from "./pages/AddSmaller";
 import SubtractLessThanHalf from "./pages/SubtractLessThanHalf";
+import MovingChip from "./pages/MovingChip";
+import PlacingBishop from "./pages/PlacingBishop";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path='/subtract-power-of-2' element={<SubtractPowerOfTwo/>}/>
         <Route path='/add-smaller' element={<AddSmaller/>}/>
         <Route path='/subtract-less-than-half' element={<SubtractLessThanHalf/>}/>
+        <Route path='/moving-chip' element={<MovingChip/>}/>
+        <Route path='/placing-bishop' element={<PlacingBishop/>}/>
       </Routes>
     </BrowserRouter>
   );

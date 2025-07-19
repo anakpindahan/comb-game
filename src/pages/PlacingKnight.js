@@ -126,7 +126,7 @@ const PlacingKnight = () => {
   const board = (
     <div>
       <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={validCount <= 0} />
-      <Board x={size} y={size} filling="K"
+      <Board x={size} y={size} filling={() => "N"}
         isFilled={isFilled}
         isValid={isValid}
         setNewPosition={newPositionHandler}

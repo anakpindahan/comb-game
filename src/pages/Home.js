@@ -14,8 +14,10 @@ let title_link = {
   "Taruh Raja": "/placing-king",
   "Taruh Kuda": "/placing-knight",
   "Kurangkan Dua Berpangkat": "/subtract-power-of-2",
-  "Tambahkan yang lebih kecil": "add-smaller",
-  "Kurangkan Tak Lebih dari Setengah": "subtract-less-than-half"
+  "Tambahkan yang lebih kecil": "/add-smaller",
+  "Kurangkan Tak Lebih dari Setengah": "/subtract-less-than-half",
+  "Pindahkan Chip": "/moving-chip",
+  "Taruh Gajah": "/placing-bishop"
 }
 
 let title_link_arr = Object.keys(title_link)

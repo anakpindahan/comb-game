@@ -16,7 +16,7 @@ const Board = (props) => {
             return(
             <>
               <Square isFilled={props.isFilled(i, j)}
-              filling={props.filling}
+              filling={props.filling(i, j)}
               isValid={props.isValid(i, j)}
               onSquareClick={() => props.clickHandler(i, j)}/>
             </>)
