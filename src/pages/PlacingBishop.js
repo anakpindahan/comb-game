@@ -32,74 +32,28 @@ const PlacingBishop = () => {
 
   const newPositionHandler = (x, y) => {
     setTurn(t => (t + 1) % 2)
-    const ynzero = (y !== 0)
-    const ynlast = (y !== size - 1)
-    const xnzero = (x !== 0)
-    const xnlast = (x !== size - 1)
 
+    const dulbr = x - y
+    const dblur = x + y
+    
     const newSquareStatus = [...squareStatus]
-    const newSquareStatusNested = [...squareStatus[x]]
-
-    newSquareStatusNested[y] = 1
-    setValidCount(vc => vc - 1)
-    if(ynzero){
-      if(newSquareStatusNested[y - 1] !== -1){
-        setValidCount(vc => vc - 1)
-      }
-      newSquareStatusNested[y - 1] = -1
-
-    }
-    if(ynlast){
-      if(newSquareStatusNested[y + 1] !== -1){
-        setValidCount(vc => vc - 1)        
-      }
-      newSquareStatusNested[y + 1] = -1
-    }
-    newSquareStatus[x] = newSquareStatusNested
-
-    if(xnzero){
-      const newSquareStatusNested = [...squareStatus[x - 1]]
-      if(newSquareStatusNested[y] !== -1){
-        setValidCount(vc => vc - 1)        
-      }
-      newSquareStatusNested[y] = -1
-
-      if(ynzero){
-        if(newSquareStatusNested[y - 1] !== -1){
-          setValidCount(vc => vc - 1)
+    for(let i=0; i<size; i++){
+      if(i !== x){
+        const newSquareStatusNested = [...squareStatus[i]]
+        if(i >= dulbr){
+          newSquareStatusNested[i - dulbr] = -1
         }
-        newSquareStatusNested[y - 1] = -1
-      }
-      if(ynlast){
-        if(newSquareStatusNested[y + 1] !== -1){
-          setValidCount(vc => vc - 1)
+        if(size > (dblur - i)){
+          newSquareStatusNested[dblur - i] = -1
         }
-        newSquareStatusNested[y + 1] = -1
+        newSquareStatus[i] = newSquareStatusNested
+      } else {
+        const newSquareStatusNested = [...squareStatus[x]]
+        newSquareStatusNested[y] = 1 
+        newSquareStatus[x] = newSquareStatusNested
       }
-      newSquareStatus[x - 1] = newSquareStatusNested
     }
 
-    if(xnlast){
-      const newSquareStatusNested = [...squareStatus[x + 1]]
-      if(newSquareStatusNested[y] === 0){
-        setValidCount(vc => vc - 1)
-      }
-      newSquareStatusNested[y] = -1
-
-      if(ynzero){
-        if(newSquareStatusNested[y - 1] === 0){
-          setValidCount(vc => vc - 1)
-        }
-        newSquareStatusNested[y - 1] = -1
-      }
-      if(ynlast){
-        if(newSquareStatusNested[y + 1] === 0){
-          setValidCount(vc => vc - 1)
-        }
-        newSquareStatusNested[y + 1] = -1
-      }
-      newSquareStatus[x + 1] = newSquareStatusNested
-    }
     setSquareStatus(newSquareStatus)
   }
 
