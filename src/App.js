@@ -8,6 +8,7 @@ import GuessNumberByDivisor from './pages/GuessNumberByDivisor';
 import TambahkanProperDivisor from './pages/TambahkanProperDivisor';
 import KalikanTerus from "./pages/KalikanTerus";
 import HapusSisakanRelatifPrima from "./pages/HapusSisakanRelatifPrima";
+import Iberoamerican2011P1 from "./pages/Iberoamerican2011P1";
 import Lusophon2022P2 from "./pages/Lusophon2022P2";
 import Bachet from "./pages/Bachet";
 import MovingKing from "./pages/MovingKing";
@@ -31,6 +32,7 @@ function App() {
         <Route path='/tambahkan-proper-divisor' element={<TambahkanProperDivisor/>}/>
         <Route path='/kalikan-terus' element={<KalikanTerus/>}/>
         <Route path='/hapus-sisakan-relatif-prima' element={<HapusSisakanRelatifPrima />}/>
+        <Route path='/iberoamerican-2011-p1' element={<Iberoamerican2011P1/>}/>
         <Route path='/lusophon-2022-p2' element={<Lusophon2022P2/>}/>
         <Route path='/bachet' element={<Bachet/>}/>
         <Route path='/moving-king' element={<MovingKing/>}/>

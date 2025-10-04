@@ -8,6 +8,7 @@ let title_link = {
   "Tambahkan proper divisor": "/tambahkan-proper-divisor",
   "Kalikan terus": "/kalikan-terus",
   "Hapus sisakan relatif prima": "/hapus-sisakan-relatif-prima",
+  "2n, 3n, n+1": "/iberoamerican-2011-p1",
   "Fruits in a Box": "/lusophon-2022-p2",
   "Bachet's Game": "/bachet",
   "Pindahkan Raja": "/moving-king",
