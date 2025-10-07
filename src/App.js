@@ -19,6 +19,7 @@ import AddSmaller from "./pages/AddSmaller";
 import SubtractLessThanHalf from "./pages/SubtractLessThanHalf";
 import MovingChip from "./pages/MovingChip";
 import PlacingBishop from "./pages/PlacingBishop";
+import AmbilJumlahDigit from "./pages/AmbilJumlahDigit";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path='/subtract-less-than-half' element={<SubtractLessThanHalf/>}/>
         <Route path='/moving-chip' element={<MovingChip/>}/>
         <Route path='/placing-bishop' element={<PlacingBishop/>}/>
+        <Route path='/ambil-jumlah-digit' element={<AmbilJumlahDigit/>}/>
       </Routes>
     </BrowserRouter>
   );

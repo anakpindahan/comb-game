@@ -18,7 +18,8 @@ let title_link = {
   "Tambahkan yang lebih kecil": "/add-smaller",
   "Kurangkan Tak Lebih dari Setengah": "/subtract-less-than-half",
   "Pindahkan Chip": "/moving-chip",
-  "Taruh Gajah": "/placing-bishop"
+  "Taruh Gajah": "/placing-bishop",
+  "Ambil Jumlah Digit": "/ambil-jumlah-digit"
 }
 
 let title_link_arr = Object.keys(title_link)

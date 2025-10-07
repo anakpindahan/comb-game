@@ -20,3 +20,13 @@ export function isPrimeOrOne(n){
   }
   return true
 }
+
+export function sumOfDigits(n){
+  let s = 0
+  while(n){
+    s += (n % 10)
+    n -= (n % 10)
+    n /= 10
+  }
+  return s
+}
