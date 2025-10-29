@@ -8,6 +8,6 @@
 
 .factor-button:hover {
   cursor: pointer;
-  background-color: cornflowerblue;
-  color: aliceblue;
+  background-color: #16163f;
+  color: #fde6a3;
 }

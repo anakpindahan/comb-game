@@ -2,7 +2,7 @@
   padding: 2rem;
   padding-top: 0rem;
   background: rgb(194,51,155);
-  background: linear-gradient(117deg, rgba(194,51,155,1) 0%, rgba(17,184,215,1) 58%, rgba(194,51,155,1) 92%);
+  background: linear-gradient(-150deg, #16163f 0%, #fde6a3 20%, #8296c4 40%, #feca72 60%, #495670 80%);
   min-height: 100vh;
   overflow: hidden;
 }

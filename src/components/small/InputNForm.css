@@ -23,6 +23,6 @@ input[type=number]{
 }
 
 .first-selection-input:hover {
-  background-color: cornflowerblue;
-  color: aliceblue;
+  background-color: #16163f;
+  color: #fde6a3;
 }

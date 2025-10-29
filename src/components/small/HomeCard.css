@@ -1,5 +1,5 @@
 .home-card-button {
-  background-color: aliceblue;
+  background-color: white;
   width: 10rem;
   height: 4rem;
   font-size: 1rem;
@@ -7,7 +7,7 @@
 }
 
 .home-card-button:hover {
-  background-color: cornflowerblue;
-  color: aliceblue;
+  background-color: #16163f;
+  color: #fde6a3;
   cursor: pointer;
 }
