@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { gcd } from "../utils"
 import "./pages.css"
-import "./kurangkanfaktor.css"
+import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import FactorButton from "../components/small/FactorButton"
 import PlayerTurn from "../components/small/PlayerTurn"

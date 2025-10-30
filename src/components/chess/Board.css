@@ -5,8 +5,9 @@
   background-color: white;
   color: #000;
   font-family: 'Courier New', Courier, monospace;
-  height: 3rem;
-  width: 3rem;
+  font-size: min(3rem, 7vw);
+  height: min(3rem, 7vw);
+  width: min(3rem, 7vw);
 }
 
 .square-valid:hover {
@@ -22,9 +23,9 @@
   color: #000;
   font-family: 'Courier New', Courier, monospace;
   padding: 1px;
-  font-size: 3rem;
-  height: 3rem;
-  width: 3rem;
+  font-size: min(3rem, 7vw);
+  height: min(3rem, 7vw);
+  width: min(3rem, 7vw);
 }
 
 .square-non-valid:hover {

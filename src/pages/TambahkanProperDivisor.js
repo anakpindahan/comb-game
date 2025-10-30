@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { getFactors } from "../utils"
 import "./pages.css"
-import "./kurangkanfaktor.css"
+import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import RestartButton from "../components/small/RestartButton"
 import NumberDisplayer from "../components/small/NumberDisplayer"

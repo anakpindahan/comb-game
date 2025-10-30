@@ -2,8 +2,14 @@
   background-color: white;
   text-align: center;
   font-size: 2rem;
-  margin-left: 42%;
-  margin-right: 42%;
+  margin-left: 30%;
+  margin-right: 30%;
   border: 3px black solid;
   margin-bottom: 5%;
+}
+
+@media screen and (max-width: 425px) {
+  .current-number {
+    font-size: 1.4rem;
+  }
 }

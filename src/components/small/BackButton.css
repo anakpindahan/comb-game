@@ -5,6 +5,13 @@
   width: 4rem;
 }
 
+@media screen and (max-width:425px) {
+  .back-button {
+    font-size: 2rem;
+    width: 4rem;
+  }
+}
+
 .back-button:hover {
   color: aliceblue;
   cursor: pointer;

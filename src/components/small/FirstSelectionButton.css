@@ -9,6 +9,14 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 425px) {
+  .first-selection-button{
+    font-size: 1rem;
+    width: 34%;
+    height: 5rem;
+  }
+}
+
 .first-selection-button:hover {
   cursor: pointer;
   background-color: #16163f;

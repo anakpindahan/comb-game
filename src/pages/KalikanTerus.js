@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./pages.css"
-import "./kurangkanfaktor.css"
+import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import NumberDisplayer from "../components/small/NumberDisplayer"
 import PlayerTurn from "../components/small/PlayerTurn"
@@ -48,7 +48,7 @@ const KalikanTerus = () => {
     <div>
       {target === 999999 && (
       <div className="first-selection-div">
-        <h2>Pilih nilai p</h2>
+        <h2 className="helper-text">Pilih nilai p</h2>
         {[1000, 1000000].map((val) => {
           return (<FirstSelectionButton val={val} handler={(e) => handleChangeTarget(e, val)}/>)
         })}

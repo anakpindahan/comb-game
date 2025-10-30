@@ -7,6 +7,12 @@
   font-size: 1.2rem;
 }
 
+@media screen and (max-width: 425px) {
+  .restart-button {
+    font-size: 1rem;
+  }
+}
+
 .restart-button:hover {
   background-color: ivory;
 }

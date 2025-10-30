@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./pages.css"
-import "./kurangkanfaktor.css"
+import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import NumberDisplayer from "../components/small/NumberDisplayer"
 import PlayerTurn from "../components/small/PlayerTurn"

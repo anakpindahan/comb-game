@@ -6,7 +6,14 @@
 
 .problem-title {
   text-align: center;
-  font-size: max(3rem, 3vw);
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 425px) {
+  .problem-title {
+    text-align: center;
+    font-size:  1.6rem;
+  }
 }
 
 .empty-div {
