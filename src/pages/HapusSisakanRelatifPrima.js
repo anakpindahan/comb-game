@@ -1,18 +1,15 @@
 import { useState } from "react"
 import { gcd } from "../utils"
-import "./pages.css"
+import "./../components/big/pages.css"
 import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import FactorButton from "../components/small/FactorButton"
 import PlayerTurn from "../components/small/PlayerTurn"
 import RestartButton from "../components/small/RestartButton"
 import InputNForm from "../components/small/InputNForm"
+import { FormattedMessage } from "react-intl"
 
 const HapusSisakanRelatifPrima = () => {
-  const title = "Hapus Sisakan Relatif Prima"
-  const desc = "Start with n ≥ 12 successive positive integers. A and B alternately take one integer, until only two integers a and b are left. A wins if gcd(a, b) = 1, and B wins if gcd(a, b) > 1. Who wins?"
-  const source = "Problem-Solving Strategies - Arthur Engel"
-
   const [turn, setTurn] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [n, setN] = useState(-1)
@@ -50,7 +47,7 @@ const HapusSisakanRelatifPrima = () => {
   const board = (
     <div>
       {n === -1 && (
-        <InputNForm text={"Masukkan nilai n yang tidak lebih dari 120"} 
+        <InputNForm text={<FormattedMessage id="problems.keepcoprime.form.text"/>} 
           submitHandler={(e) => handleChangeN(e)}
           changeHandler={(e) => setExpN(e.target.value)}
           val={expN}
@@ -62,7 +59,7 @@ const HapusSisakanRelatifPrima = () => {
           <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={playerWon()} isFinished={isFinished} winningText={`Pemain ${playerWon()} menang dengan dua bilangan tersisa: ${numberList[0]} dan ${numberList[1]}`}/>
           {!isFinished && (
             <div>
-              <p className="helper-text">Pilihan bilangan yang ingin dihapus:</p>
+              <p className="helper-text"><FormattedMessage id="problems.keepcoprime.helpertext"/></p>
               {numberList.map((val) => {
                 return (<FactorButton text={val} handler={(e) => handleXRemoval(e, val)}/>)
               })}
@@ -75,7 +72,7 @@ const HapusSisakanRelatifPrima = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board} source={source}/>
+    <Problem problemId={"keepcoprime"} board={board}/>
   )
 }
 

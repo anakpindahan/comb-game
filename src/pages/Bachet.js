@@ -5,12 +5,9 @@ import NumberDisplayer from "../components/small/NumberDisplayer"
 import FactorButton from "../components/small/FactorButton"
 import InputNForm from "../components/small/InputNForm"
 import RestartButton from "../components/small/RestartButton"
+import { FormattedMessage } from "react-intl"
 
 const Bachet = () => {
-  const title = "Bachet's Game"
-  const desc = "Dua orang pemain bermain dengan n batu. Dalam setiap langkahnya, seorang pemain dapat mengambil 1, 2, atau 3 batu. Pemain yang mengambil batu terakhir menang. Siapakah yang memiliki strategi menang untuk nilai n tertentu?"
-  const source = "Problem-Solving Strategies - Arthur Engel"
-
   const [turn, setTurn] = useState(0)
   const [currNumber, setCurrNumber] = useState(-1)
   const [expN, setExpN] = useState(1)
@@ -50,7 +47,7 @@ const Bachet = () => {
           <div>
             <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={currNumber === 0}/>
             <NumberDisplayer currNumber={currNumber}/>
-            {currNumber > 0 && (<p className="helper-text">Pilih banyak batu yang ingin diambil</p>)}
+            {currNumber > 0 && (<p className="helper-text"><FormattedMessage id="problems.bachet.helpertext"/></p>)}
             {validSteps().map((val) => {
               return (<FactorButton text={val} handler={(e) => handleSubtractor(e, val)}/>)
             })}
@@ -59,7 +56,7 @@ const Bachet = () => {
         </div>  
       ) : (
         <div>
-          <InputNForm text={"Masukkan nilai n yang tidak lebih dari 120 dan tidak kurang dari 1"}
+          <InputNForm text={<FormattedMessage id="problems.bachet.form.text"/>}
             submitHandler={(e) => handleChangeN(e)}
             changeHandler={(e) => setExpN(e.target.value)}
             val={expN}
@@ -72,7 +69,7 @@ const Bachet = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board} source={source} />
+    <Problem problemId={"bachet"} board={board} />
   )
 }
 

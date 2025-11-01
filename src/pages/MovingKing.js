@@ -5,10 +5,6 @@ import Board from "../components/chess/Board";
 import RestartButton from "../components/small/RestartButton";
 
 const MovingKing = () => {
-  const title = "Memindahkan Raja"
-  const desc = "A king is placed on square a8 of a chessboard. Players take turns moving the king either downwards, to the right, or along a diagonal going downwards and to the right. The player who places the king on square h1 is the winner."
-  const source = "Mathematical Circles (Russian Experience) - Dmitri Fomin, Sergey Genkin, Ilia Itenberg"
-  
   const [turn, setTurn] = useState(0)
   const [positionX, setPositionX] = useState(0)
   const [positionY, setPositionY] = useState(0)
@@ -55,7 +51,7 @@ const MovingKing = () => {
 
 
   return (
-    <Problem title={title} desc={desc} source={source} board={board}/>
+    <Problem problemId={"movingking"} board={board}/>
   )
 }
 

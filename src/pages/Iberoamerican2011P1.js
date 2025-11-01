@@ -1,17 +1,14 @@
 import { useState } from "react"
-import "./pages.css"
+import "./../components/big/pages.css"
 import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import NumberDisplayer from "../components/small/NumberDisplayer"
 import PlayerTurn from "../components/small/PlayerTurn"
 import FactorButton from "../components/small/FactorButton"
 import RestartButton from "../components/small/RestartButton"
+import { FormattedMessage } from "react-intl"
 
 const Iberoamerican2011P1 = () => {
-  const title = "2n, 3n, n+1"
-  const desc = "Bilangan 2 tertulis di papan. Ana dan Bruno bermain sebuah permainan. Dimulai dari Ana, secara bergantian, pemain dapat mengganti bilangan n yang ada di papan menjadi 2n, 3n, atau n + 1. Pemain pertama yang mendapatkan bilangan yang lebih besar atau sama dengan 2011 menang. Tentukan siapa yang memiliki strategi menang."
-  const source = "Iberoamerican 2011 P1"
-
   const [currNumber, setCurrNumber] = useState(2)
   const [turn, setTurn] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
@@ -50,7 +47,7 @@ const Iberoamerican2011P1 = () => {
       <NumberDisplayer currNumber={currNumber}/>
       {!isFinished && (
         <div>
-          <p className="helper-text">Pilihan hal yang ingin dilakukan:</p>
+          <p className="helper-text"><FormattedMessage id="problems.ibero11p1.helpertext"/></p>
             <FactorButton text="2n" handler={(e) => handleSubmit(e, 0)} />
             <FactorButton text="3n" handler={(e) => handleSubmit(e, 1)} />
             <FactorButton text="n+1" handler={(e) => handleSubmit(e, 2)} />
@@ -61,7 +58,7 @@ const Iberoamerican2011P1 = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board} source={source}/>
+    <Problem problemId={"ibero11p1"} board={board}/>
   )
 }
 

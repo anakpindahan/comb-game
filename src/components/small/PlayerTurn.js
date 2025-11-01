@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import './PlayerTurn.css'
 
 const PlayerTurn = ({ongoingTurnFunc, finishedTurnFunc, isFinished, winningText=`Pemain ${finishedTurnFunc} menang`}) => {
@@ -6,7 +7,7 @@ const PlayerTurn = ({ongoingTurnFunc, finishedTurnFunc, isFinished, winningText=
       {isFinished ? (
         <p className="turn-text">{winningText}</p>
       ) : (
-        <p className="turn-text">Giliran Pemain {ongoingTurnFunc}</p>
+        <p className="turn-text"><FormattedMessage id="board.turn"/> {ongoingTurnFunc}</p>
       )}
     </>
   )

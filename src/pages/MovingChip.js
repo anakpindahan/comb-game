@@ -4,13 +4,9 @@ import PlayerTurn from "../components/small/PlayerTurn"
 import Board from "../components/chess/Board"
 import RestartButton from "../components/small/RestartButton"
 import InputNForm from "../components/small/InputNForm"
+import { FormattedMessage } from "react-intl"
 
 const MovingChip = () => {
-  const title = "Pindahkan Chip"
-  const desc = "Initially there is a chip at the corner of an n × n-chessboard. A and B alternately move the chip one step in any direction. They may not move to a square already visited. The loser is the one who cannot move. (a) Who wins for even n? (b) Who wins for odd n? (c) Who wins if the chip starts on a square, which is neighbor to acorner square?"
-  const source = "Problem-Solving Strategies - Arthur Engel"
-
-
   const [n, setN] = useState(-1)
   const [expN, setExpN] = useState(8)
   const [turn, setTurn] = useState(0)
@@ -107,7 +103,7 @@ const MovingChip = () => {
   const board = (
     <div>
       {n === -1 && (
-        <InputNForm text={"Masukkan nilai n yang tidak lebih dari 15 dan tidak kurang dari 2"} 
+        <InputNForm text={<FormattedMessage id="problems.movingchip.form.text"/>} 
           submitHandler={(e) => handleChangeN(e)}
           changeHandler={(e) => setExpN(e.target.value)}
           val={expN}
@@ -130,7 +126,7 @@ const MovingChip = () => {
   )
 
   return (
-    <Problem title={title} desc={desc} source={source} board={board}/>
+    <Problem problemId={"movingchip"} board={board}/>
   )
 }
 

@@ -5,10 +5,6 @@ import Board from "../components/chess/Board"
 import RestartButton from "../components/small/RestartButton"
 
 const PlacingKing = () => {
-  const title = "Taruh Raja"
-  const desc = "Two players take turns placing kings on the squares of a 9 x 9 chessboard, so that no king can capture another. The player who is unable to do this loses."
-  const source = "Mathematical Circles (Russian Experience) - Dmitri Fomin, Sergey Genkin, Ilia Itenberg"
-
   const size = 9
   const [turn, setTurn] = useState(0)
   const [squareStatus, setSquareStatus] = useState(Array(size).fill(0).map(() => Array(size).fill(0)))
@@ -123,7 +119,7 @@ const PlacingKing = () => {
   )
 
   return (
-    <Problem title={title} desc={desc} source={source} board={board}/>
+    <Problem problemId={"placingking"} board={board}/>
   )
 }
 

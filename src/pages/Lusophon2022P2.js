@@ -4,12 +4,9 @@ import PlayerTurn from "../components/small/PlayerTurn";
 import NumberDisplayer from "../components/small/NumberDisplayer";
 import FactorButton from "../components/small/FactorButton";
 import RestartButton from "../components/small/RestartButton";
+import { FormattedMessage } from "react-intl";
 
 const Lusophon2022P2 = () => {
-  const title = "Fruits in a Box"
-  const desc = "Anselmo and Claudio are playing alternatively a game with fruits in a box. The box initially has 32 fruits. Anselmo plays first and each turn consists of taking away 1, 2, or 3 fruits from the box or taking away 2/3 of the fruits from the box (this is only possible when the number of the fruits left in the box is a multiple of 3). The player that takes away the last fruit from the box wins. Which of these two players has a winning strategy? How should that player play in order to win?"
-  const source = "Lusophon MO 2022 P2"
-
   const [turn, setTurn] = useState(0)
   const [currNumber, setCurrNumber] = useState(32)
 
@@ -43,7 +40,7 @@ const Lusophon2022P2 = () => {
       <div>
         <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={currNumber === 0}/>
         <NumberDisplayer currNumber={currNumber}/>
-        {currNumber > 0 && (<p className="helper-text">Pilih banyak buah yang ingin diambil</p>)}
+        {currNumber > 0 && (<p className="helper-text"><FormattedMessage id="problems.lusophon22p2.helpertext"/></p>)}
         {validSteps().map((val) => {
           return (<FactorButton text={val} handler={(e) => handleSubmit(e, val)}/>)
         })}
@@ -53,7 +50,7 @@ const Lusophon2022P2 = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board} source={source}/>
+    <Problem problemId={"lusophon22p2"} board={board} />
   )
 }
 

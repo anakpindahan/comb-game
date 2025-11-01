@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import './RestartButton.css'
 
 const restartIcon = (
@@ -10,7 +11,7 @@ const restartIcon = (
 const RestartButton = ({restartCallback}) => {
   return(
    <button className="restart-button" onClick={restartCallback}>
-      Restart
+      <FormattedMessage id="restart.text"/>
       {restartIcon}
    </button> 
   )

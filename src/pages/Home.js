@@ -1,38 +1,51 @@
+import React from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 import HomeCard from "../components/small/HomeCard";
+import LangSwitcher from "../i18n/LangSwitcher";
+import "./Home.css"
 
-let title_link = {
-  "Pindahkan Benteng": "/moving-rook",
-  "Kurangkan Faktor v1": "/kurangkan-faktor-1",
-  "Kurangkan Faktor v2": "/kurangkan-faktor-2",
-  // "Tebak angka dengan faktor": "/tebak-angka-dengan-faktor",
-  "Tambahkan proper divisor": "/tambahkan-proper-divisor",
-  "Kalikan terus": "/kalikan-terus",
-  "Hapus sisakan relatif prima": "/hapus-sisakan-relatif-prima",
-  "2n, 3n, n+1": "/iberoamerican-2011-p1",
-  "Fruits in a Box": "/lusophon-2022-p2",
-  "Bachet's Game": "/bachet",
-  "Pindahkan Raja": "/moving-king",
-  "Taruh Raja": "/placing-king",
-  "Taruh Kuda": "/placing-knight",
-  "Kurangkan Dua Berpangkat": "/subtract-power-of-2",
-  "Tambahkan yang lebih kecil": "/add-smaller",
-  "Kurangkan Tak Lebih dari Setengah": "/subtract-less-than-half",
-  "Pindahkan Chip": "/moving-chip",
-  "Taruh Gajah": "/placing-bishop",
-  "Ambil Jumlah Digit": "/ambil-jumlah-digit"
-}
-
-let title_link_arr = Object.keys(title_link)
-title_link_arr.sort()
+let link_arr = [
+  "/moving-rook",
+  "/subtract-factor-v1",
+  "/subtract-factor-v2",
+   "/add-proper-divisor",
+  "/keep-multiply",
+  "/keep-coprime",
+  "/ibero-11-p1",
+  "/lusophon-22-p2",
+  "/bachet",
+  "/moving-king",
+  "/placing-king",
+  "/placing-knight",
+  "/subtract-power-of-2",
+  "/add-smaller",
+  "/subtract-less-than-half",
+  "/moving-chip",
+  "/placing-bishop",
+  "/centro-22-p1"
+]
 
 const Home = () => {
+  const intl = useIntl()
+  const sorted_link_arr = React.useMemo(() => {
+    return [...link_arr].sort((a, b) => 
+      intl.formatMessage({id: `problems.${a.replace(/\W/g,'')}.title`}).localeCompare(
+        intl.formatMessage({id: `problems.${b.replace(/\W/g,'')}.title`}),
+        intl.locale
+      )
+    )
+  }, [intl]) 
   return(
     <div className="first-container">
-      <h1>Permainan Kombinatorika Divisualisasikan</h1>
+      <div className="home-top">
+        <div/>
+        <h1><FormattedMessage id="home.title"/></h1>
+        <LangSwitcher/>
+      </div>
       <div className="home-cards-container">
-        {title_link_arr
-          .map(key => {
-          return(<HomeCard link={title_link[key]} title={key}/>)
+        {sorted_link_arr
+          .map(link => {
+          return(<HomeCard link={link} title={<FormattedMessage id={`problems.${link.replace(/\W/g,'')}.title`}/>}/>)
         })}
       </div>
     </div>

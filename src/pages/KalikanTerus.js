@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./pages.css"
+import "./../components/big/pages.css"
 import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import NumberDisplayer from "../components/small/NumberDisplayer"
@@ -7,12 +7,9 @@ import PlayerTurn from "../components/small/PlayerTurn"
 import FactorButton from "../components/small/FactorButton"
 import RestartButton from "../components/small/RestartButton"
 import FirstSelectionButton from "../components/small/FirstSelectionButton"
+import { FormattedMessage } from "react-intl"
 
 const KalikanTerus = () => {
-  const title = "Kalikan Terus"
-  const desc = "A and B start with p = 1. Then they alternately multiply p by one of the numbers 2 to 9. The winner is the one who first reaches (a) p ≥ 1000, (b) p ≥ 1000000. Who wins, A or B?"
-  const source = "Problem-Solving Strategies - Arthur Engel"
-
   const [currNumber, setCurrNumber] = useState(1)
   const [turn, setTurn] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
@@ -48,7 +45,7 @@ const KalikanTerus = () => {
     <div>
       {target === 999999 && (
       <div className="first-selection-div">
-        <h2 className="helper-text">Pilih nilai p</h2>
+        <h2 className="helper-text"><FormattedMessage id="problems.keepmultiply.form.text"/></h2>
         {[1000, 1000000].map((val) => {
           return (<FirstSelectionButton val={val} handler={(e) => handleChangeTarget(e, val)}/>)
         })}
@@ -59,7 +56,7 @@ const KalikanTerus = () => {
           <NumberDisplayer currNumber={currNumber}/>
           {!isFinished && (
             <div>
-              <p className="helper-text">Pilihan bilangan yang ingin dikalikan:</p>
+              <p className="helper-text"><FormattedMessage id="problems.keepmultiply.helpertext"/></p>
               {Array.from({length: 8}, (_, i) => (i + 2)).map((val) => {
                 return (<FactorButton text={val} handler={(e) => handleSubmit(e, val)} />)
               })}
@@ -72,7 +69,7 @@ const KalikanTerus = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board} source={source}/>
+    <Problem problemId={"keepmultiply"} board={board}/>
   )
 }
 

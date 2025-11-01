@@ -1,15 +1,11 @@
 import { useState } from "react"
 import Board from "../components/chess/Board"
-import './pages.css'
+import "./../components/big/pages.css"
 import Problem from "../components/big/Problem";
 import RestartButton from "../components/small/RestartButton";
 import PlayerTurn from "../components/small/PlayerTurn";
 
 const MovingRook = () => {
-  const title = "Memindahkan Benteng"
-  const desc = "Terdapat sebuah papan berukuran 8 x 8. Sebuah benteng berada di petak kiri atas. Benteng ini hanya bisa bergerak lurus ke bawah dan ke kanan. Dua pemain secara bergantian menggerakkan benteng ini agar sampai di petak kanan bawah. Pemain yang berhasil menggerakkan benteng ke petak kanan bawah menang. Siapakah yang memiliki strategi menang?"
-  const source = "Mathematical Circles (Russian Experience) - Dmitri Fomin, Sergey Genkin, Ilia Itenberg"
-
   const [turn, setTurn] = useState(0)
   const [positionX, setPositionX] = useState(0)
   const [positionY, setPositionY] = useState(0)
@@ -55,7 +51,7 @@ const MovingRook = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board} source={source} />
+    <Problem problemId={"movingrook"} board={board} />
   );
 };
 

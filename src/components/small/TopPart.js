@@ -1,14 +1,15 @@
+import LangSwitcher from "../../i18n/LangSwitcher";
 import BackButton from "./BackButton"
-import "./BackButtonTitle.css"
+import "./TopPart.css"
 
-const BackButtonTitle = ({title}) => {
+const TopPart = ({title}) => {
   return(
     <div className="back-title">
       <BackButton/>
       <h1 className="problem-title">{title}</h1>
-      <div className="empty-div"/>
+      <LangSwitcher/>
     </div>
   )
 }
 
-export default BackButtonTitle;
+export default TopPart;

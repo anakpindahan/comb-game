@@ -1,17 +1,15 @@
 import { useState } from "react"
 import { getFactors, isPrimeOrOne } from "../utils"
-import "./pages.css"
+import "./../components/big/pages.css"
 import "./../components/small/HelperText.css"
 import Problem from "../components/big/Problem"
 import RestartButton from "../components/small/RestartButton"
 import NumberDisplayer from "../components/small/NumberDisplayer"
 import PlayerTurn from "../components/small/PlayerTurn"
 import FactorButton from "../components/small/FactorButton"
+import { FormattedMessage } from "react-intl"
 
 const KurangkanFaktor2 = () => {
-  const title = "Kurangkan Faktor (versi 2)"
-  const desc = "Tertulis bilangan 120. Dua pemain secara bergantian mengurangkan bilangan yang ada dengan salah satu faktor positifnya yang bukan 1 atau bilangan itu sendiri dan mengganti bilangan yang ada dengan hasil tersebut. Pemain yang tidak dapat melakukan langkah kalah. Siapakah yang memiliki strategi menang?"
-
   const [currNumber, setCurrNumber] = useState(120)
   const [turn, setTurn] = useState(0)
 
@@ -32,7 +30,7 @@ const KurangkanFaktor2 = () => {
       <div>
         <PlayerTurn ongoingTurnFunc={turn + 1} finishedTurnFunc={2 - turn} isFinished={isPrimeOrOne(currNumber)} />
         <NumberDisplayer currNumber={currNumber}/>
-        {!isPrimeOrOne(currNumber) && (<p className="helper-text">Pilihan faktor yang ingin dikurangkan:</p>)}
+        {!isPrimeOrOne(currNumber) && (<p className="helper-text"><FormattedMessage id="problems.subtractfactorv2.helpertext"/></p>)}
         {getFactors(currNumber).slice(1, -1).map((val) => {
           return (<FactorButton text={val} handler={(e) => handleSubmit(e, val)} />)
         })}
@@ -42,7 +40,7 @@ const KurangkanFaktor2 = () => {
   )
 
   return(
-    <Problem title={title} desc={desc} board={board}/>
+    <Problem problemId={"subtractfactorv2"} board={board}/>
   )
 }
 

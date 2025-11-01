@@ -5,10 +5,6 @@ import Board from "../components/chess/Board"
 import RestartButton from "../components/small/RestartButton"
 
 const PlacingBishop = () => {
-  const title = "Taruh Gajah"
-  const desc = "Two players take turns placing bishops on the squares of a chessboard, so that they cannot capture each other. (the bishops may be placed on squares of any color). The player who is unable to do this loses."
-  const source = "Mathematical Circles (Russian Experience) - Dmitri Fomin, Sergey Genkin, Ilia Itenberg"
-
   const size = 8
   const [turn, setTurn] = useState(0)
   const [squareStatus, setSquareStatus] = useState(Array(size).fill(0).map(() => Array(size).fill(0)))
@@ -77,7 +73,7 @@ const PlacingBishop = () => {
   )
 
   return (
-    <Problem title={title} desc={desc} source={source} board={board}/>
+    <Problem problemId={"placingbishop"} board={board}/>
   )
 }
 
